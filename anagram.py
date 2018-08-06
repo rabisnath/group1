@@ -3,25 +3,6 @@
 #opening the word bank
 word_list = open("eng_dict.txt", "r")
 
-#make hash table
-#the keys will be alphabetized strings, the values will be lists of english words that match the key in content
-anagram_table = {}
-
-#fill in hash table
-#def fill_table(dict_name):
-	#for word in word_list:
-		#alphabetize
-		#make new key if not present
-		#add to existing value if already in table
-
-#filter the table for short anagrams
-#def filter_table_forlength(min_len):
-	#for entry in table, remove if key lenght < min_len
-
-#sort the hash table
-
-#filter for surprising result
-
 def alphabetize(string):
 	arr = []
 	for char in string:
@@ -36,11 +17,54 @@ def alphabetize(string):
 		output_str += char
 	return output_str
 
+#function to delete an entry from a dict
+def remove(table, key):
+	new_table = table
+	del new_table[key]
+	return new_table
+
+#make hash table
+#the keys will be alphabetized strings, the values will be lists of english words that match the key in content
+def make_table(source):
+	hash_table = {}
+	for word in source:
+		#eliminating short words
+		if len(word) < 8:
+			continue
+		#alphabetizing the word
+		alpha = alphabetize(word)
+		#make new key if not present
+		#add to existing value if already in table
+		if alpha in hash_table:
+			hash_table[alpha].append(word)
+		else:
+			hash_table[alpha] = [word]
+	#removing entries that just have one word (non-anagrams)
+	filtered_table = {}
+	for key in hash_table:
+		if len(hash_table[key]) > 1:
+			filtered_table[key] = hash_table[key]
+	return filtered_table
+
+anagram_table = make_table(word_list)
+
+def print_hash(table):
+	for key in table:
+		print(str(key) + " : " + str(table[key]))
+
+#sort the hash table
+
+#filter for surprising result
+
+
+
 
 def test():
 	#for line in word_list:
 	#	print(line)
 	#print(alphabetize("alphabetize"))
+	print_hash(anagram_table)
+	
 	
 
 test()
