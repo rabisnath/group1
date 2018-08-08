@@ -54,11 +54,6 @@ def print_hash(table):
 	for key in sorted(table):
 		print(str(key) + " : " + str(table[key]))
 
-#filter for surprising result
-
-#pattern based selections
-
-
 
 
 #using a "difference metric" to find anagram pairs more generally
@@ -92,6 +87,30 @@ def filter_table_by_difference(table, min_diff_score):
 
 
 
+#Kevin's stuff
+
+def first_last_switched(table):
+    first_last_switched_table = {}
+    for key in table:
+        for i in range(len(table[key])-1):
+            wordOneletterOne = table[key][i][0]
+            wordTwoletterLast = table[key][i+1][len(table[key][i+1])-1]
+            print(wordTwoletterLast)
+            if wordOneletterOne == wordTwoletterLast:
+                first_last_switched_table[key] = {wordOneletterOne, wordTwoletterLast}
+    print(first_last_switched_table)
+
+
+
+#Checks to see if first letter occurs often
+
+
+
+
+#Kevin's stuff (close)
+
+
+
 def test():
 
 	anagram_table = make_table(word_list)
@@ -106,6 +125,10 @@ def test():
 	print_hash(filtered_table)
 
 	print(len(anagram_table), len(filtered_table))
+
+	#testing for patterns
+
+	first_last_switched(anagram_table)
 
 
 
