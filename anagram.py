@@ -78,8 +78,8 @@ def string_difference(stringA, stringB): #takes in two strings and returns the s
 def filter_table_by_difference(table, min_diff_score):
 	output_table = {}
 	for key in table:
-		if len(table[key]) > 2: #keeping all anagram tuples with three or more words
-			output_table[key] = table[key]
+		#if len(table[key]) > 2: #keeping all anagram tuples with three or more words
+		#	output_table[key] = table[key]
 		if string_difference(table[key][0], table[key][1]) >= min_diff_score:
 			output_table[key] = table[key]
 	return output_table
