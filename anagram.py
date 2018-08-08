@@ -32,6 +32,7 @@ def remove(table, key):
 def make_table(source):
 	hash_table = {}
 	for word in source:
+		word = word[:-1]
 		#eliminating short words
 		if len(word) < 8:
 			continue
@@ -72,13 +73,13 @@ def string_difference(stringA, stringB): #takes in two strings and returns the s
 	square_diffs = []
 	for i in range(len(stringA)):
 		square_diffs.append( (arrayA[i] - arrayB[i]) ** 2)
-	return math.sqrt(sum(square_diffs))
+	return sum(square_diffs)
 
 def filter_table_by_difference(table, min_diff_score):
 	output_table = {}
 	for key in table:
-		#if len(table[key]) > 2: #keeping all anagram tuples with three or more words
-		#	output_table[key] = table[key]
+		if len(table[key]) > 2: #keeping all anagram tuples with three or more words
+			output_table[key] = table[key]
 		if string_difference(table[key][0], table[key][1]) >= min_diff_score:
 			output_table[key] = table[key]
 	return output_table
@@ -95,10 +96,10 @@ def first_last_switched(table):
         for i in range(len(table[key])-1):
             wordOneletterOne = table[key][i][0]
             wordTwoletterLast = table[key][i+1][len(table[key][i+1])-1]
-            print(wordTwoletterLast)
+            #print(wordTwoletterLast)
             if wordOneletterOne == wordTwoletterLast:
                 first_last_switched_table[key] = {wordOneletterOne, wordTwoletterLast}
-    print(first_last_switched_table)
+    #print(first_last_switched_table)
 
 
 
@@ -121,7 +122,7 @@ def test():
 
 	#print_hash(anagram_table)
 
-	filtered_table = filter_table_by_difference(anagram_table, 35)
+	filtered_table = filter_table_by_difference(anagram_table, 1000)
 	print_hash(filtered_table)
 
 	print(len(anagram_table), len(filtered_table))
