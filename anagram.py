@@ -130,13 +130,13 @@ def main():
 	#print(len(anagram_table), len(filtered_table))
 
 	#testing for patterns
-  #uncomment either of the methods in this section to see the anagrams kevin found
-  #testing to see if first three letters of an anagram match last three letters of another
+ 	#uncomment either of the methods in this section to see the anagrams kevin found
+    #testing to see if first three letters of an anagram match last three letters of another
 	first_last_switched_table = first_last_switched(anagram_table)
 	#print_hash(first_last_switched_table)
 	#print(len(first_last_switched_table))
 
-  #testing to see which anagrams start with the same letter
+  	#testing to see which anagrams start with the same letter
 	first_letter_recurring_table = recurring_first_letter(anagram_table)
 	#print_hash(first_letter_recurring_table)
 	#print(len(first_letter_recurring_table))
