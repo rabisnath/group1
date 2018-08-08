@@ -122,38 +122,28 @@ def number_of_positions_switched(table):
 
 
 
-def test():
+def main():
 
 	anagram_table = make_table(word_list)
 
-	#for line in word_list:
-	#	print(line)
-	#print(alphabetize("alphabetize"))
-
+	#uncomment this line to see the whole anagram table
 	#print_hash(anagram_table)
 
 	filtered_table = filter_table_by_difference(anagram_table, 1000)
-	print_hash(filtered_table)
+	#uncomment this line to see the anagrams found via the variance method
+	#print_hash(filtered_table)
 
-	print(len(anagram_table), len(filtered_table))
+	#uncomment this line to see the number of anagrams found
+	#print(len(anagram_table), len(filtered_table))
 
 	#testing for patterns
 
-	first_last_switched(anagram_table)
-
-
+	#uncomment either of the methods in this section to see the anagrams kevin found
+	#first_last_switched(anagram_table)
+	
 	#number_of_positions_switched(anagram_table)
 
-
-
-	#test_pairs = [
-	#["aaaaa", "aaaaa"],
-	#["listen", "silent"],
-	#["aaaaaa", "ZZZZZZ"],
-	#]
-	#for pair in test_pairs:
-	#	print(string_difference(pair[0], pair[1]))
+	#uncomment the methods in this section to see the anagrams andrea found
 	
-	
-
-test()
+if __name__ == "__main__":
+	main()
