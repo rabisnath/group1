@@ -78,14 +78,12 @@ def string_difference(stringA, stringB): #takes in two strings and returns the s
 def filter_table_by_difference(table, min_diff_score):
 	output_table = {}
 	for key in table:
-		if len(table[key]) > 2: #keeping all anagram tuples with three or more words
-			output_table[key] = table[key]
+		#if len(table[key]) > 2: #keeping all anagram tuples with three or more words
+		#	output_table[key] = table[key]
 		if string_difference(table[key][0], table[key][1]) >= min_diff_score:
                         output_table[key] = table[key]
 	return output_table
 		
-
-
 
 
 #Kevin's stuff
@@ -117,50 +115,33 @@ def recurring_first_letter(table):
     return first_letter_recurring_table
     
 
-        
-
-
-#Kevin's stuff (close)
-
-
-
-def test():
+def main():
 
 	anagram_table = make_table(word_list)
 
-	for line in word_list:
-		print(line)
-	print(alphabetize("alphabetize"))
-
-	print_hash(anagram_table)
+	#uncomment this line to see the whole anagram table
+	#print_hash(anagram_table)
 
 	filtered_table = filter_table_by_difference(anagram_table, 1000)
-	print_hash(filtered_table)
+	#uncomment this line to see the anagrams found via the variance method
+	#print_hash(filtered_table)
 
-	print(len(anagram_table), len(filtered_table))
+	#uncomment this line to see the number of anagrams found
+	#print(len(anagram_table), len(filtered_table))
 
 	#testing for patterns
-
-        #testing to see if first three letters of an anagram match last three letters of another
+  #uncomment either of the methods in this section to see the anagrams kevin found
+  #testing to see if first three letters of an anagram match last three letters of another
 	first_last_switched_table = first_last_switched(anagram_table)
-	print_hash(first_last_switched_table)
-	print(len(first_last_switched_table))
+	#print_hash(first_last_switched_table)
+	#print(len(first_last_switched_table))
 
-        #testing to see which anagrams start with the same letter
+  #testing to see which anagrams start with the same letter
 	first_letter_recurring_table = recurring_first_letter(anagram_table)
-	print_hash(first_letter_recurring_table)
-	print(len(first_letter_recurring_table))
+	#print_hash(first_letter_recurring_table)
+	#print(len(first_letter_recurring_table))
 
-
-
-	#test_pairs = [
-	#["aaaaa", "aaaaa"],
-	#["listen", "silent"],
-	#["aaaaaa", "ZZZZZZ"],
-	#]
-	#for pair in test_pairs:
-	#	print(string_difference(pair[0], pair[1]))
+	#uncomment the methods in this section to see the anagrams andrea found
 	
-	
-
-test()
+if __name__ == "__main__":
+	main()
