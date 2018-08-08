@@ -81,7 +81,7 @@ def filter_table_by_difference(table, min_diff_score):
 		#if len(table[key]) > 2: #keeping all anagram tuples with three or more words
 		#	output_table[key] = table[key]
 		if string_difference(table[key][0], table[key][1]) >= min_diff_score:
-			output_table[key] = table[key]
+                        output_table[key] = table[key]
 	return output_table
 		
 
@@ -91,21 +91,31 @@ def filter_table_by_difference(table, min_diff_score):
 #Kevin's stuff
 
 def first_last_switched(table):
-    first_last_switched_table = {}
-    for key in table:
-        for i in range(len(table[key])-1):
-            wordOneletterOne = table[key][i][0]
-            wordTwoletterLast = table[key][i+1][len(table[key][i+1])-1]
-            #print(wordTwoletterLast)
-            if wordOneletterOne == wordTwoletterLast:
-                first_last_switched_table[key] = {wordOneletterOne, wordTwoletterLast}
-    #print(first_last_switched_table)
+        first_last_switched_table = {}
+        for key in table:
+                for i in range(len(table[key])-1):
+                        wordOneletterOne = table[key][i][0]
+                        wordTwoletterLast = table[key][i+1][len(table[key][i+1])-1]
+                        if wordOneletterOne == wordTwoletterLast:
+                                first_last_switched_table[key] = {table[key][i], table[key][i+1]}
+        print(first_last_switched_table)
 
 
 
 #Checks to see if first letter occurs often
 
-
+def number_of_positions_switched(table):
+    first_letter_recurring_table = {}
+    for key in table:
+        for i in range(len(table[key])-1):
+            wordOneletterOne = table[key][i][0]
+            wordTwoletterOne = table[key][i+1][0]
+            if wordOneletterOne == wordTwoletterOne:
+                first_letter_recurring_table[key] = {table[key][i], table[key][i+1]}
+        if len(first_letter_recurring_table[key]) < 3:
+            del first_letter_recurring_table[key]
+    return first_letter_recurring_table
+        
 
 
 #Kevin's stuff (close)
@@ -130,6 +140,9 @@ def test():
 	#testing for patterns
 
 	first_last_switched(anagram_table)
+
+
+	#number_of_positions_switched(anagram_table)
 
 
 
