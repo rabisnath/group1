@@ -32,6 +32,7 @@ def remove(table, key):
 def make_table(source):
 	hash_table = {}
 	for word in source:
+		word = word[:-1]
 		#eliminating short words
 		if len(word) < 8:
 			continue
@@ -95,10 +96,10 @@ def first_last_switched(table):
         for i in range(len(table[key])-1):
             wordOneletterOne = table[key][i][0]
             wordTwoletterLast = table[key][i+1][len(table[key][i+1])-1]
-            print(wordTwoletterLast)
+            #print(wordTwoletterLast)
             if wordOneletterOne == wordTwoletterLast:
                 first_last_switched_table[key] = {wordOneletterOne, wordTwoletterLast}
-    print(first_last_switched_table)
+    #print(first_last_switched_table)
 
 
 
