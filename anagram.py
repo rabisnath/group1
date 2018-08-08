@@ -94,27 +94,29 @@ def first_last_switched(table):
         first_last_switched_table = {}
         for key in table:
                 for i in range(len(table[key])-1):
-                        wordOneletterOne = table[key][i][0]
-                        wordTwoletterLast = table[key][i+1][len(table[key][i+1])-1]
+                        wordOneletterOne = table[key][i][0:3]
+                        wordTwoletterLast = table[key][i+1][len(table[key][i+1])-3:]
                         if wordOneletterOne == wordTwoletterLast:
-                                first_last_switched_table[key] = {table[key][i], table[key][i+1]}
-        print(first_last_switched_table)
+                                first_last_switched_table[key] = [table[key][i], table[key][i+1]]
+        return first_last_switched_table
 
 
 
 #Checks to see if first letter occurs often
 
-def number_of_positions_switched(table):
+def recurring_first_letter(table):
     first_letter_recurring_table = {}
+    amt = 1
     for key in table:
         for i in range(len(table[key])-1):
             wordOneletterOne = table[key][i][0]
             wordTwoletterOne = table[key][i+1][0]
             if wordOneletterOne == wordTwoletterOne:
-                first_letter_recurring_table[key] = {table[key][i], table[key][i+1]}
-        if len(first_letter_recurring_table[key]) < 3:
-            del first_letter_recurring_table[key]
+                first_letter_recurring_table[key] = [table[key][i], table[key][i+1]]
+                amt += 1
     return first_letter_recurring_table
+    
+
         
 
 
@@ -126,11 +128,11 @@ def test():
 
 	anagram_table = make_table(word_list)
 
-	#for line in word_list:
-	#	print(line)
-	#print(alphabetize("alphabetize"))
+	for line in word_list:
+		print(line)
+	print(alphabetize("alphabetize"))
 
-	#print_hash(anagram_table)
+	print_hash(anagram_table)
 
 	filtered_table = filter_table_by_difference(anagram_table, 1000)
 	print_hash(filtered_table)
@@ -139,10 +141,15 @@ def test():
 
 	#testing for patterns
 
-	first_last_switched(anagram_table)
+        #testing to see if first three letters of an anagram match last three letters of another
+	first_last_switched_table = first_last_switched(anagram_table)
+	print_hash(first_last_switched_table)
+	print(len(first_last_switched_table))
 
-
-	#number_of_positions_switched(anagram_table)
+        #testing to see which anagrams start with the same letter
+	first_letter_recurring_table = recurring_first_letter(anagram_table)
+	print_hash(first_letter_recurring_table)
+	print(len(first_letter_recurring_table))
 
 
 
