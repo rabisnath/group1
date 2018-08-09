@@ -1,11 +1,12 @@
 #filter for palindromes
 
-new_array=[]
+
 def palindrome(table):
+    new_array=[]
     for key in table:
-        for word in table[key]:
-            if word[::-1] == word:
-                new_array.append[word]
+        for i in table[key]:
+            if i[::-1] == table[key][i+1]:
+                new_array.append[i]
     return new_array
 
 

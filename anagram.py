@@ -114,6 +114,15 @@ def recurring_first_letter(table):
                 amt += 1
     return first_letter_recurring_table
     
+#checks for any palindromes
+def palindrome(table):
+    new_array=[]
+    for key in table:
+        for i in table[key]:
+            if i[::-1] == table[key][i+1]:
+                new_array.append[i]
+    return new_array
+
 
 def main():
 
@@ -142,6 +151,10 @@ def main():
 	#print(len(first_letter_recurring_table))
 
 	#uncomment the methods in this section to see the anagrams andrea found
-	
+    #testing to see if the first and second words are palindromes
+    palindromes = palindrome(anagram_table)
+    #print_hash(palindromes)
+    #print(palindromes)
+    
 if __name__ == "__main__":
 	main()
