@@ -1,0 +1,35 @@
+Lab 2
+CAAP CMSC 101, Summer 2018
+Person Graded: Andrea Domiter
+
+Required Elements/Attributes/Functions
+  Used all modules           3/3
+  Implemented all required functions    3/3
+  Added game content/more new scenes       1/3 
+
+Semantics/Syntax
+  Well structured modules     20/20
+
+Correct use of directories/files
+  20/20
+
+Tests
+  All pages/functions work correctly  20/20
+
+Design/Classes/Modules
+  Dynamic gameplay/difficulty    3/5
+  Efficient use of classes/global variables     10/10
+  Interesting storyline  4/5
+  
+
+Code style
+  format         3/3 (* code looks good *)
+  clarity        3/3 (* logic is expressed clearly *)
+  decomposition  3/3 (* problems are factored into sensible subproblems *)
+  efficiency     2/2 (* blatant inefficiencies are avoided *)
+
+_total-score_  95/100
+
+graded by Jose Reyes
+
+Comments:
